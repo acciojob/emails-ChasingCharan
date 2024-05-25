@@ -48,7 +48,7 @@ public class Email {
             }
         }
 
-        if(newPassword.equals(oldPassword) && hasEightchar && hasUppercase && hasLowercase && hasDigit && hasSpecialchar){
+        if(oldPassword.equals(getPassword()) && hasEightchar && hasUppercase && hasLowercase && hasDigit && hasSpecialchar){
             System.out.println("Password changed successfully ");
             return;
         }
