@@ -32,7 +32,7 @@ public class Email {
         boolean hasDigit = false;
         boolean hasSpecialchar =false;
 
-        if (newPassword.length() < 8){
+        if (newPassword.length() > 8){
             hasEightchar = true;
         }
 
