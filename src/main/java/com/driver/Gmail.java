@@ -15,6 +15,12 @@ public class Gmail extends Email {
         String sender;
         String message;
 
+        Mail(Date data, String sender, String message){
+            this.data= data;
+            this.sender=sender;
+            this.message=message;
+        }
+
         public Date getData() {
             return data;
         }
@@ -37,12 +43,6 @@ public class Gmail extends Email {
 
         public void setMessage(String message) {
             this.message = message;
-        }
-
-        Mail(Date data, String sender, String message){
-            this.data= data;
-            this.sender=sender;
-            this.message=message;
         }
 
     }
@@ -69,7 +69,7 @@ public class Gmail extends Email {
         // Each message is distinct
         // If the given message is found in any mail in the inbox, move the mail to trash, else do nothing
         for(Mail mail :inbox){
-            if(mail.message.equals(message)){
+            if(mail.getMessage().equals(message)){
                 trash.add(mail);
                 inbox.remove(mail);
                 return;
@@ -83,7 +83,7 @@ public class Gmail extends Email {
         if(inbox.isEmpty()){
             return null;
         }
-        return inbox.getLast().message;
+        return inbox.getLast().getMessage();
     }
 
     public String findOldestMessage(){
@@ -92,7 +92,7 @@ public class Gmail extends Email {
         if(inbox.isEmpty()){
             return null;
         }
-        return inbox.getFirst().message;
+        return inbox.getFirst().getMessage();
 
     }
 
