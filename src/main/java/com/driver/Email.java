@@ -32,7 +32,7 @@ public class Email {
         boolean hasDigit = false;
         boolean hasSpecialchar =false;
 
-        if (newPassword.length() > 8){
+        if (newPassword.length() >= 8){
             hasEightchar = true;
         }
 
@@ -49,7 +49,7 @@ public class Email {
         }
 
         if(oldPassword.equals(getPassword()) && hasEightchar && hasUppercase && hasLowercase && hasDigit && hasSpecialchar){
-            System.out.println("Password changed successfully ");
+            this.password=newPassword;
             return;
         }
         return;
