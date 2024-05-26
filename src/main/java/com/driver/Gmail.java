@@ -9,18 +9,6 @@ public class Gmail extends Email {
     private LinkedList<Mail> inbox;
     //Trash: Stores mails. Each mail has date (Date), sender (String), message (String)
     private List<Mail> trash;
-    private class Mail{
-       Date data;
-       String sender;
-       String message;
-
-       Mail(Date data, String sender, String message){
-           this.data= data;
-           this.sender=sender;
-           this.message=message;
-       }
-
-    }
 
     public Gmail(String emailId, int inboxCapacity) {
         super(emailId);
@@ -102,4 +90,17 @@ public class Gmail extends Email {
         // Return the maximum number of mails that can be stored in the inbox
         return inboxCapacity;
     }
+    private class Mail{
+        Date data;
+        String sender;
+        String message;
+
+        Mail(Date data, String sender, String message){
+            this.data= data;
+            this.sender=sender;
+            this.message=message;
+        }
+
+    }
+
 }
