@@ -10,6 +10,43 @@ public class Gmail extends Email {
     //Trash: Stores mails. Each mail has date (Date), sender (String), message (String)
     private List<Mail> trash;
 
+    private class Mail{
+        Date data;
+        String sender;
+        String message;
+
+        public Date getData() {
+            return data;
+        }
+
+        public void setData(Date data) {
+            this.data = data;
+        }
+
+        public String getSender() {
+            return sender;
+        }
+
+        public void setSender(String sender) {
+            this.sender = sender;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+        Mail(Date data, String sender, String message){
+            this.data= data;
+            this.sender=sender;
+            this.message=message;
+        }
+
+    }
+
     public Gmail(String emailId, int inboxCapacity) {
         super(emailId);
         this.inboxCapacity=inboxCapacity;
@@ -63,8 +100,10 @@ public class Gmail extends Email {
         //find number of mails in the inbox which are received between given dates
         //It is guaranteed that start date <= end date
          int count =0;
+
          for(Mail mail:inbox){
-             if(mail.data.after(start) && mail.data.before(end)){
+             Date date=mail.getData();
+             if(date.after(start) && date.before(end)){
                  count++;
              }
          }
@@ -90,17 +129,6 @@ public class Gmail extends Email {
         // Return the maximum number of mails that can be stored in the inbox
         return inboxCapacity;
     }
-    private class Mail{
-        Date data;
-        String sender;
-        String message;
 
-        Mail(Date data, String sender, String message){
-            this.data= data;
-            this.sender=sender;
-            this.message=message;
-        }
-
-    }
 
 }
