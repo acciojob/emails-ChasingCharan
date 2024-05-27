@@ -103,7 +103,7 @@ public class Gmail extends Email {
 
          for(Mail mail:inbox){
              Date date=mail.getData();
-             if(date.after(start) && date.before(end)){
+             if(!date.before(start) && !date.after(end)){
                  count++;
              }
          }
